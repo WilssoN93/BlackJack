@@ -71,7 +71,7 @@ public class Menu {
 
     }
 
-    private int readNumber() {
+    public static int readNumber() {
 
         Scanner sc = new Scanner(System.in);
 
@@ -81,7 +81,7 @@ public class Menu {
         return number;
     }
 
-    private String readText() {
+    public String readText() {
         String s = null;
         try {
             Scanner sc = new Scanner(System.in);

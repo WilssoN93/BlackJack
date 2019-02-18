@@ -1,125 +1,69 @@
 package card;
 
-import java.util.Collections;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
 
 public class HandTest {
 
-    Hand h = new Hand();
-
-    public HandTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    Hand h;
+    Deck d;
 
     @Before
     public void setUp() {
-        h.createHand();
-        h.createDealerHand();
+        d = new Deck(2);
+        h = new Hand();
+
     }
 
     @After
-    public void tearDown() {
+    public void after() {
+       d.clear();
     }
 
     @Test
     public void testCreateHand() {
-        
-        
+
+        assertEquals(2, h.getHandSize());
 
     }
 
     @Test
-    public void testCreateDealerHand() {
+    public void testNewCards() {
 
-    }
+        h.newCards(h.hand);
 
-    /**
-     * Test of clear method, of class Hand.
-     */
-    @Test
-    public void testClear() {
-
-    }
-
-    /**
-     * Test of printHand method, of class Hand.
-     */
-    @Test
-    public void testPrintHand() {
-
-    }
-
-    /**
-     * Test of printDealerFirstCard method, of class Hand.
-     */
-    @Test
-    public void testPrintDealerFirstCard() {
+        assertEquals(2, h.getHandSize());
 
     }
 
     @Test
     public void testAddCard() {
 
-    }
-
-    /**
-     * Test of addDealerCard method, of class Hand.
-     */
-    @Test
-    public void testAddDealerCard() {
+        h.addCard();
+        assertEquals(3, h.getHandSize());
 
     }
 
-    /**
-     * Test of dealerHand method, of class Hand.
-     */
     @Test
-    public void testDealerHand() {
+    public void testAces() {
+        h.clear(h.hand);
+
+        Card aceOne = new Card("Diamonds", "Ace of ", 11);
+        Card aceTwo = new Card("Spades", "Ace of ", 11);
+        h.hand.add(aceTwo);
+        h.hand.add(aceOne);
+
+        h.aceChange(h.hand);
+        assertEquals(12, aceOne.number + aceTwo.number);
 
     }
 
-    /**
-     * Test of newCards method, of class Hand.
-     */
     @Test
-    public void testNewCards() {
+    public void testDeck() {
 
-    }
-
-    /**
-     * Test of myHandScore method, of class Hand.
-     */
-    @Test
-    public void testMyHandScore() {
-
-    }
-
-    /**
-     * Test of dHandScore method, of class Hand.
-     */
-    @Test
-    public void testDHandScore() {
-
-    }
-
-    /**
-     * Test of dealerActions method, of class Hand.
-     */
-    @Test
-    public void testDealerActions() {
+        assertEquals(100, d.size());
 
     }
 
