@@ -16,7 +16,9 @@ public class Hand {
         for (int i = 0; i <= 1; i++) {
 
             hand.add(Deck.deckOfCards.get(i));
+
             Deck.deckOfCards.remove(i);
+            aceChange(hand);
 
         }
 
@@ -52,6 +54,7 @@ public class Hand {
         try {
             hand.add(Deck.deckOfCards.get(0));
             Deck.deckOfCards.remove(Deck.deckOfCards.get(0));
+            aceChange(hand);
         } catch (IndexOutOfBoundsException e) {
             System.out.println("det finns inga kort kvar i leken");
         }
@@ -91,9 +94,9 @@ public class Hand {
 
     public void dealerActions(ArrayList<Card> hand) {
 
-        do {
+        while (this.handScore() < 17) {
             this.addCard();
-        } while (handScore() < 17);
+        }
 
     }
 
@@ -122,5 +125,17 @@ public class Hand {
             return "You loose";
         }
         return "=====================";
+    }
+
+    public void aceChange(ArrayList<Card> hand) {
+        for (int i = 0; i < hand.size(); i++) {
+
+            if (hand.get(i).cardValues.equals("Ace of ")) {
+                if (handScore() >= 22) {
+                    hand.get(i).number = 1;
+                }
+            }
+        }
+
     }
 }
