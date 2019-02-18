@@ -9,6 +9,7 @@ public class CardGame {
         Deck d = new Deck(4);
         d.shuffleDeck();
         m = new Menu();
+
         //d.printDeck();
         //System.out.println(d.size());
 

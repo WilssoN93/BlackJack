@@ -18,12 +18,13 @@ public class Deck {
         return "Deck " + "deckOfCards " + deckOfCards;
     }
 
-    public void clear() {
+    public void clear() {// clears the deck of any cards
         
         deckOfCards.clear();
     }
 
-    private void createDeck(ArrayList deckOfCard, int numberOfDecks) {
+    
+    private void createDeck(ArrayList deckOfCard, int numberOfDecks) { // adds 52 cards in a deck and you can choose how many decks you want in total!
         for (int j = 0; j < numberOfDecks; j++) {
 
             ArrayList<String> values = new ArrayList<>();

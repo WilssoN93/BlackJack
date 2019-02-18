@@ -8,18 +8,18 @@ import static org.junit.Assert.assertEquals;
 public class HandTest {
 
     Hand h;
-    Deck d;
+    Deck deck;
 
     @Before
     public void setUp() {
-        d = new Deck(2);
+        deck = new Deck(2);
         h = new Hand();
 
     }
 
     @After
     public void after() {
-       d.clear();
+       deck.clear();
     }
 
     @Test
@@ -60,11 +60,21 @@ public class HandTest {
 
     }
 
+//    @Test
+//    public void testDeck() {
+//
+//        assertEquals(100, d.size());
+//
+//    }
+    
     @Test
-    public void testDeck() {
-
-        assertEquals(100, d.size());
-
+    public void testClear(){
+        
+        deck.clear();
+    assertEquals(0,deck.size());
+    
     }
+    
+    
 
 }
