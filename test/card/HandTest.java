@@ -12,9 +12,8 @@ public class HandTest {
 
     @Before
     public void setUp() {
-        deck = new Deck(2);
+        deck = new Deck(1);
         h = new Hand();
-
     }
 
     @After
@@ -60,12 +59,12 @@ public class HandTest {
 
     }
 
-//    @Test
-//    public void testDeck() {
-//
-//        assertEquals(100, d.size());
-//
-//    }
+    @Test
+    public void testDeckSize() {  
+
+        assertEquals(50, deck.size());
+
+    }
     
     @Test
     public void testClear(){
@@ -73,6 +72,29 @@ public class HandTest {
         deck.clear();
     assertEquals(0,deck.size());
     
+    }
+    
+    @Test
+    public void testHandScore(){
+    
+    h.clear(h.hand);
+    
+    Card cardOne = new Card("Diamonds","King of ",10);
+    Card cardTwo = new Card("Spades","Eight of ",8);
+    Card cardTree = new Card("Spades","Six of ",6);
+    Card cardFour = new Card("Spades","Five of ",5);
+    Card cardFive = new Card("Spades","Two of ",2);
+    Card cardSix = new Card("Spades","Ten of ",10);
+    
+    h.hand.add(cardOne);
+    h.hand.add(cardTwo);
+    h.hand.add(cardTree);
+    h.hand.add(cardFour);
+    h.hand.add(cardFive);
+    h.hand.add(cardSix);
+    
+    assertEquals(41,h.handScore());
+        
     }
     
     
